@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jevarti Fashion Brand</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f6f1e1;--paper:#fffdf6;--sand:#ece2c8;--ink:#3b2414;--mut:#6e5a47;--gold:#e8b84b;--gold2:#a87a1c;--line:#e0d4b4;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -21,7 +22,9 @@ button,input{font:inherit}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid #eee}
 header .wrap{align-items:center;height:68px;gap:12px;display:grid;grid-template-columns:1fr auto 1fr}
-.logo{font:800 20px Archivo,Montserrat,sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.logo{display:inline-flex;align-items:center;gap:12px;width:max-content}
+.logo img{height:38px;width:auto;display:block}
+.logo span{font:500 15px/1 Montserrat,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);padding-top:2px}
 nav{display:flex;gap:clamp(10px,3vw,48px);font:600 10px Archivo,Montserrat,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 nav a{padding:6px 0;border-bottom:1px solid transparent}
 nav a:hover{border-color:var(--ink)}
@@ -110,6 +113,37 @@ footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-
 @media (max-width:1024px){.story .wrap{grid-template-columns:1fr;gap:40px}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}.trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.trust div:nth-child(2){border-right:0}.trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}section{padding:64px 0}}
 @media (max-width:560px){.wrap{padding:0 16px}.g4{gap:14px}.news form{flex-direction:column}}
 
+
+/* design strip */
+.strip{background:var(--ink);color:var(--cream);overflow:hidden;border-bottom:1px solid rgba(246,241,225,.12)}
+.strip-track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.strip:hover .strip-track,.strip:focus-within .strip-track{animation-play-state:paused}
+.strip ul{display:flex;align-items:center;list-style:none;padding:0}
+.strip li{display:flex;align-items:center;gap:14px;padding:10px 0 10px 34px}
+.strip li::after{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg);margin-left:34px;flex:none}
+.strip a{display:flex;align-items:center;gap:14px}
+.strip img{width:48px;height:60px;object-fit:cover;object-position:top;border-radius:6px;background:#eeeae2;flex:none}
+.strip b{display:block;font:600 17px/1.1 "Cormorant Garamond",Georgia,serif;white-space:nowrap}
+.strip small{display:block;font:500 11px/1.4 Montserrat,sans-serif;letter-spacing:.06em;color:var(--gold);white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.strip{overflow-x:auto}.strip-track{animation:none}}
+
+/* reviews */
+.love .head{align-items:end}
+.love .head h2{font-size:clamp(34px,4.6vw,56px);max-width:12ch}
+.love .head p{max-width:34ch;font-size:15px}
+.rev{display:flex;flex-direction:column;background:var(--paper);padding:34px 32px 28px;border-radius:10px;border:1px solid var(--line);position:relative;box-shadow:0 14px 30px -22px rgba(59,36,20,.4)}
+.rev::before{content:"\201C";position:absolute;top:6px;right:24px;font:700 110px/1 "Cormorant Garamond",serif;color:var(--gold);opacity:.35;pointer-events:none}
+.stars{display:flex;gap:3px;margin-bottom:18px}
+.stars svg{width:15px;height:15px;fill:var(--gold2)}
+.rev h3{font-size:27px;font-weight:700;margin-bottom:12px}
+.rev blockquote{font:500 15px/1.75 Montserrat,sans-serif;color:var(--ink);margin:0 0 26px;max-width:46ch}
+.who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font:600 15px "Cormorant Garamond",serif;letter-spacing:.04em;flex:none}
+.who b{display:block;font:600 14px/1.3 Montserrat,sans-serif}
+.who small{display:block;font:500 12px/1.4 Montserrat,sans-serif;color:var(--mut)}
+@media (max-width:560px){.strip img{width:40px;height:50px}.strip li{padding-left:24px}.strip li::after{margin-left:24px}.logo img{height:32px}.logo span{font-size:13px;letter-spacing:.28em}.rev{padding:28px 22px 22px}}
+
 /* card polish */
 .tile{border-radius:10px;box-shadow:0 1px 0 rgba(59,36,20,.04),0 12px 28px -18px rgba(59,36,20,.35)}
 .tile img.g{height:94%;margin-top:6%;align-self:flex-end;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -143,12 +177,19 @@ footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top">Jevarti</a>
+    <a class="logo" href="#top" aria-label="Jevarti home"><img src="logo-mark.png" alt=""><span>Jevarti</span></a>
     <nav><a href="#shop">Collections</a><a href="#new">Lookbook</a><a href="#story">Atelier</a><a href="#drop">Fabrics</a><a href="#news">Bespoke</a></nav>
     <div class="icons"><a href="#" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a><a href="#" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a><a href="#" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span id="cart">0</span></a><button class="menu" id="menu" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
   </div>
   <div class="drawer" id="drawer"><a href="#shop">Collections</a><a href="#new">Lookbook</a><a href="#story">Atelier</a><a href="#drop">Fabrics</a><a href="#news">Bespoke</a></div>
 </header>
+
+<div class="strip" aria-label="Featured designs">
+  <div class="strip-track">
+    <ul><li><a href="#new"><img src="thumbs/dress.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Signature Wrap Dress</b><small>₦35,000</small></span></a></li><li><a href="#new"><img src="thumbs/varsity-brown.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Brown Varsity Jacket</b><small>₦32,000</small></span></a></li><li><a href="#new"><img src="thumbs/jacket-beige.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Cream Wool Shirt Jacket</b><small>₦40,000</small></span></a></li><li><a href="#new"><img src="thumbs/varsity-green.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Olive Varsity Jacket</b><small>₦36,000</small></span></a></li></ul>
+    <ul aria-hidden="true"><li><a tabindex="-1" href="#new"><img src="thumbs/dress.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Signature Wrap Dress</b><small>₦35,000</small></span></a></li><li><a tabindex="-1" href="#new"><img src="thumbs/varsity-brown.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Brown Varsity Jacket</b><small>₦32,000</small></span></a></li><li><a tabindex="-1" href="#new"><img src="thumbs/jacket-beige.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Cream Wool Shirt Jacket</b><small>₦40,000</small></span></a></li><li><a tabindex="-1" href="#new"><img src="thumbs/varsity-green.jpg" alt="" loading="lazy" width="48" height="60"><span><b>Olive Varsity Jacket</b><small>₦36,000</small></span></a></li></ul>
+  </div>
+</div>
 
 <main id="top">
   <div class="hero"><div class="wrap" style="position:relative">
@@ -197,12 +238,12 @@ footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-
     <div class="g4" id="drop4"></div>
   </div></section>
 
-  <section class="alt"><div class="wrap">
-    <div class="head"><h2>What customers say</h2></div>
+  <section class="alt love"><div class="wrap">
+    <div class="head"><div><h2>Worn, loved, reordered</h2><p>Real words from the women and men who wear Jevarti every day.</p></div></div>
     <div class="g3">
-      <div class="rev"><div class="serif">“Jevarti pieces move from studio to street to evening without changing a thing.”</div><p>Amina O.</p></div>
-      <div class="rev"><div class="serif">“The fit is perfect and the fabric feels expensive. I get compliments every time.”</div><p>Tolu A.</p></div>
-      <div class="rev"><div class="serif">“Fast delivery and the packaging was beautiful. I’ve already ordered again.”</div><p>Fatima B.</p></div>
+      <article class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg></div><h3>Studio to evening</h3><blockquote>Jevarti pieces move from studio to street to evening without changing a thing. One outfit, three occasions, and it still looks fresh at the end of the day.</blockquote><div class="who"><div class="av" aria-hidden="true">AO</div><div><b>Amina O.</b><small>Verified buyer · Signature Wrap Dress</small></div></div></article>
+      <article class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg></div><h3>Fit that flatters</h3><blockquote>The fit is perfect and the fabric feels expensive. I get compliments every time I step out in it, and strangers ask where it is from.</blockquote><div class="who"><div class="av" aria-hidden="true">TA</div><div><b>Tolu A.</b><small>Verified buyer · Cream Wool Shirt Jacket</small></div></div></article>
+      <article class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18l-6.4 3.7L7 14.5 1.7 9.5l7.2-.9z"/></svg></div><h3>Reordered within a week</h3><blockquote>Fast delivery and the packaging was beautiful. It felt like opening a gift. I have already ordered again.</blockquote><div class="who"><div class="av" aria-hidden="true">FB</div><div><b>Fatima B.</b><small>Verified buyer · Olive Varsity Jacket</small></div></div></article>
     </div>
   </div></section>
 
