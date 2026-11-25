@@ -13,37 +13,47 @@ body{background:var(--paper);color:var(--ink);font:400 15px/1.65 Montserrat,syst
 h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;line-height:1.05}
 a{color:inherit;text-decoration:none}
 button,input{font:inherit}
-.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.wrap{width:100%;max-width:1360px;margin:0 auto;padding:0 48px}
 .btn{display:inline-block;background:var(--ink);color:var(--cream);padding:15px 32px;font-weight:600;font-size:14px;border:2px solid var(--ink);border-radius:2px;cursor:pointer;transition:.2s}
 .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
 .btn.out{background:transparent;color:var(--ink)}
 .btn.out:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.bar{background:var(--ink);color:var(--gold);text-align:center;font-size:13px;padding:9px 16px;font-weight:500}
+.bar{background:var(--ink);color:var(--gold);font-size:12px;padding:9px 0;font-weight:500}.bar .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}.bar span:first-child{opacity:.75}.bar span:last-child{text-align:right;opacity:.75}.bar span:nth-child(2){text-align:center}
 header{position:sticky;top:0;z-index:30;background:rgba(255,253,246,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+header .wrap{align-items:center;height:84px;gap:20px;display:grid;grid-template-columns:1fr auto 1fr}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo b{font:700 36px "Cormorant Garamond",serif}
 .logo i{width:24px;height:5px;background:var(--gold);border-radius:5px;transform:rotate(-12deg)}
 .logo span{font:600 22px "Cormorant Garamond",serif;letter-spacing:5px}
-nav{display:flex;gap:30px;font-weight:500;font-size:14px}
+nav{display:flex;gap:36px;font-weight:500;font-size:14px}
 nav a{padding:6px 0;border-bottom:2px solid transparent}
 nav a:hover{border-color:var(--gold)}
-.icons{display:flex;gap:20px;align-items:center;font-weight:500;font-size:14px}
+.icons{display:flex;white-space:nowrap;justify-content:flex-end;gap:22px;align-items:center;font-weight:500;font-size:14px}
 .menu{display:none;background:none;border:1px solid var(--line);padding:8px 14px;border-radius:2px;cursor:pointer;font-weight:600}
 .drawer{display:none;border-top:1px solid var(--line);background:var(--paper)}
 .drawer.open{display:block}
 .drawer a{display:block;padding:14px 28px;border-bottom:1px solid var(--line);font-weight:500}
-.hero{background:var(--cream)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:56px;padding-bottom:56px}
-.hero h1{font-size:clamp(46px,7vw,92px);margin-bottom:22px}
-.hero p{color:var(--mut);max-width:420px;margin-bottom:32px;font-size:16px}
+.hero{position:relative;background:#eeeadd;overflow:hidden}
+.slide{display:none;grid-template-columns:1fr 1fr;min-height:clamp(560px,calc(100vh - 124px),760px)}
+.slide.on{display:grid;animation:fade .6s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;padding:60px 40px 60px max(48px,calc((100vw - 1360px)/2 + 48px))}
+.hero h1{font-family:Montserrat,system-ui,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.02;font-size:clamp(52px,6.4vw,104px);margin-bottom:28px}
+.hero p{color:var(--mut);max-width:460px;margin-bottom:38px;font-size:15px;line-height:1.9}
 .cta{display:flex;gap:14px;flex-wrap:wrap}
-.art{position:relative;background:linear-gradient(155deg,#f1cf7c,var(--gold));border-radius:4px;aspect-ratio:4/4.6;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.art svg.g{width:62%;color:var(--ink)}
-.art .wave{position:absolute;left:0;right:0;top:46%;width:100%;height:120px;fill:none;stroke:var(--paper);stroke-width:5;stroke-linecap:round;opacity:.9}
-.art .chip{position:absolute;left:18px;bottom:18px;background:var(--paper);padding:14px 20px;border-radius:2px;font-size:13px;line-height:1.4}
-.art .chip b{display:block;font:700 22px "Cormorant Garamond",serif}
+.hero .btn{padding:18px 38px;border-radius:0}
+.art{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.art svg.g{fill:currentColor;height:72%;margin-bottom:40px;width:auto;color:var(--ink);opacity:.92;filter:drop-shadow(0 30px 40px rgba(59,36,20,.18))}
+.art .wave{position:absolute;left:0;right:0;top:48%;width:100%;height:140px;fill:none;stroke:var(--paper);stroke-width:5;stroke-linecap:round;opacity:.85}
+.art .chip{position:absolute;left:40px;bottom:40px;background:var(--paper);padding:16px 24px;border-radius:0;font-size:13px;line-height:1.4}
+.art .chip b{display:block;font:700 24px "Cormorant Garamond",serif}
+.arr{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;background:var(--paper);border:0;cursor:pointer;font-size:18px;color:var(--ink);box-shadow:0 2px 10px rgba(59,36,20,.12);transition:.2s}
+.arr:hover{background:var(--gold)}
+.arr.p{left:0}.arr.n{right:0}
+.pg{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:8px;z-index:5}
+.pg button{width:28px;height:4px;border:0;background:rgba(59,36,20,.25);cursor:pointer;padding:0}
+.pg button.on{background:var(--ink)}
 .trust{border-bottom:1px solid var(--line)}
 .trust .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .trust div{padding:26px 20px;border-right:1px solid var(--line);font-size:13px;color:var(--mut)}
@@ -97,8 +107,8 @@ footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
 footer h4{font:600 14px Montserrat,sans-serif;color:var(--gold);margin-bottom:14px}
 footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-bottom:8px}
 .copy{border-top:1px solid rgba(246,241,225,.15);margin-top:44px;padding-top:22px;text-align:center;font-size:13px;opacity:.65}
-@media (max-width:1024px){nav,.icons .hide{display:none}.menu{display:block}.hero .wrap,.story .wrap{grid-template-columns:1fr;gap:40px}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}.trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.trust div:nth-child(2){border-right:0}.trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}section{padding:64px 0}.art{aspect-ratio:4/3.6}}
-@media (max-width:560px){.wrap{padding:0 18px}.logo span{font-size:19px;letter-spacing:3px}.g4{gap:14px}.hero .wrap{padding-top:36px;padding-bottom:36px}.news form{flex-direction:column}}
+@media (max-width:1024px){nav,.icons .hide{display:none}.menu{display:block}.story .wrap{grid-template-columns:1fr;gap:40px}.slide{grid-template-columns:1fr;min-height:0}.hero .txt{padding:48px 28px}.art{height:380px}header .wrap{display:flex;justify-content:space-between}.bar span:first-child,.bar span:last-child{display:none}.bar .wrap{display:block;text-align:center}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}.trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.trust div:nth-child(2){border-right:0}.trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}section{padding:64px 0}}
+@media (max-width:560px){.wrap{padding:0 18px}.hero .txt{padding:36px 18px}.arr{display:none}.logo span{font-size:19px;letter-spacing:3px}.g4{gap:14px}.news form{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -110,7 +120,7 @@ footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-
 <symbol id="bag" viewBox="0 0 80 84"><path d="M14 32H66L70 78H10Z"/><path d="M28 32V24Q28 12 40 12Q52 12 52 24V32" fill="none" stroke="currentColor" stroke-width="4"/></symbol>
 </defs></svg>
 
-<div class="bar">Free shipping on orders over ₦50,000</div>
+<div class="bar"><div class="wrap"><span>Fashion design studio</span><span>Free shipping on orders over ₦50,000</span><span>Chat with us on WhatsApp</span></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="#top"><b>JV</b><i></i><span>JEVARTI</span></a>
@@ -121,18 +131,22 @@ footer ul{padding:0}footer li{list-style:none;font-size:14px;opacity:.85;margin-
 </header>
 
 <main id="top">
-  <div class="hero"><div class="wrap">
-    <div>
-      <h1>New Collection.</h1>
-      <p>Every piece, more possibilities. Tailored fabrics and bold cuts that you can style a dozen different ways.</p>
-      <div class="cta"><a class="btn" href="#new">Shop now</a><a class="btn out" href="#story">Our story</a></div>
+  <div class="hero">
+    <div class="slide on">
+      <div class="txt"><h1>New<br>Collection.</h1><p>Every piece, more possibilities. Tailored fabrics and bold cuts that you can style a dozen different ways.</p><div class="cta"><a class="btn" href="#new">Shop now &rarr;</a><a class="btn out" href="#story">Our story</a></div></div>
+      <div class="art" style="background:linear-gradient(155deg,#f3d98f,#e8b84b)"><svg class="wave" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M0 80Q80 10 170 60T400 30"/></svg><svg class="g" viewBox="0 0 80 84"><use href="#dress"/></svg><div class="chip"><b>Season pieces</b>From ₦32,000</div></div>
     </div>
-    <div class="art">
-      <svg class="wave" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M0 80Q80 10 170 60T400 30"/></svg>
-      <svg class="g"><use href="#dress"/></svg>
-      <div class="chip"><b>Season pieces</b>From ₦32,000</div>
+    <div class="slide">
+      <div class="txt"><h1>Tailored<br>Shirts.</h1><p>Clean lines and quality fabrics, cut to mix, layer and travel from day to night.</p><div class="cta"><a class="btn" href="#new">Shop now &rarr;</a><a class="btn out" href="#story">Our story</a></div></div>
+      <div class="art" style="background:linear-gradient(155deg,#ece2c8,#d9c597)"><svg class="wave" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M0 80Q80 10 170 60T400 30"/></svg><svg class="g" viewBox="0 0 80 84"><use href="#shirt"/></svg><div class="chip"><b>Day to night</b>From ₦36,000</div></div>
     </div>
-  </div></div>
+    <div class="slide">
+      <div class="txt"><h1>Limited<br>Drop.</h1><p>Special prices on head wraps, totes and wide leg pants while the timer runs.</p><div class="cta"><a class="btn" href="#new">Shop now &rarr;</a><a class="btn out" href="#story">Our story</a></div></div>
+      <div class="art" style="background:linear-gradient(155deg,#efe3c4,#e0c98f)"><svg class="wave" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M0 80Q80 10 170 60T400 30"/></svg><svg class="g" viewBox="0 0 80 84"><use href="#wrap"/></svg><div class="chip"><b>Up to 25% off</b>Limited time</div></div>
+    </div>
+    <button class="arr p" id="hp" aria-label="Previous slide">&#8249;</button><button class="arr n" id="hn" aria-label="Next slide">&#8250;</button>
+    <div class="pg" id="pg"><button class="on" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div>
+  </div>
 
   <div class="trust"><div class="wrap">
     <div><b>Free delivery</b>On orders over ₦50,000</div>
@@ -198,6 +212,10 @@ document.getElementById("cats").innerHTML=C.map(function(c,i){return '<a class="
 function cards(id,a,sale){document.getElementById(id).innerHTML=a.map(function(p,i){return '<div class="card">'+(sale?'<span class="tag">Sale</span>':'')+'<div class="ph" style="background:'+BG[i%4]+'">'+ic(p[1])+'<button class="add">Add to cart</button></div><h3>'+p[0]+'</h3><div class="price">'+p[2]+(sale?'<s>'+p[3]+'</s>':'')+'</div><div class="dots">'+sw.map(function(c){return '<i style="background:'+c+'"></i>'}).join("")+'</div></div>'}).join("")}
 cards("feat",F,false);cards("drop4",D,true);
 var n=0;document.addEventListener("click",function(e){if(e.target.classList.contains("add")){n++;document.getElementById("cart").textContent=n}});
+var sl=document.querySelectorAll(".slide"),pb=document.querySelectorAll("#pg button"),cur=0,auto;
+function go(i){cur=(i+sl.length)%sl.length;sl.forEach(function(x,k){x.classList.toggle("on",k==cur);pb[k].classList.toggle("on",k==cur)})}
+function rst(){clearInterval(auto);auto=setInterval(function(){go(cur+1)},6000)}
+hp.onclick=function(){go(cur-1);rst()};hn.onclick=function(){go(cur+1);rst()};pb.forEach(function(b,k){b.onclick=function(){go(k);rst()}});rst();
 document.getElementById("menu").onclick=function(){document.getElementById("drawer").classList.toggle("open")};
 document.getElementById("drawer").onclick=function(){this.classList.remove("open")};
 var end=Date.now()+3*864e5+5*36e5;
